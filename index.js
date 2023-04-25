@@ -3,6 +3,7 @@ require('./.gitignore/node_modules/dotenv/lib/main').config()
 const express = require('express')
 const app = express()
 
+app.use('/places', require('./controllers/places'))     //imports router from places.js
 app.get('/', (req,res) => {
     res.send('Hello World')
 })
