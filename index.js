@@ -1,4 +1,4 @@
-require('./.gitignore/node_modules/dotenv/lib/main').config()
+require('dotenv').config()
 
 const express = require('express')
 const app = express()
