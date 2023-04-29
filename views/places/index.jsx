@@ -2,7 +2,7 @@ const React = require('react')
 const Def = require('../default')
 
 
-function places() {
+ /*function place() {
     return (
         <Def>
             <main>
@@ -10,9 +10,30 @@ function places() {
             </main>
         </Def>
     )
+} 
+
+module.exports = place */
+
+function index(data){
+    let placesFormatted = data.places.map((place) => {
+        return (
+            <div>
+                <h2>{place.name}</h2>
+                <img width='480' src={place.pic} alt={place.name}></img>
+            </div>
+        )
+    })
+    return (
+        <Def>
+            <main>
+                <h1>PLACES INDEX PAGE</h1>
+                {placesFormatted}
+            </main>
+        </Def>
+    )
 }
 
-module.exports = places
+module.exports = index
 
 /* function error404() {
     return(
