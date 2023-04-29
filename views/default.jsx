@@ -1,3 +1,5 @@
+// this pagee is the LAYOUT / DEFAULT page for the website
+
 const React = require('react')
 
 function Def (html) {
