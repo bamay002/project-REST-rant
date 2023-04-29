@@ -3,10 +3,13 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
-// ROUTE FOR VIEWS FOLDER
+// ROUTE FOR VIEWS FOLDER / EXPRESS SETTINGS
+
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
+//CONTOLLERS 
 app.use('/places', require('./controllers/places'))     //imports router from places.js
 app.get('/', (req,res) => {
     res.render('home')      // res.send('words') - the words inside ' ' will appear
