@@ -4,6 +4,10 @@ const router = require('express').Router()
     res.setEncoding('GET /places')
 })  */
 
+router.get('/new', (req,res) =>{
+    res.render('places/new')
+})
+
 //GET /places
 router.get('/' , (req,res) => {
     let places = [{
@@ -11,13 +15,13 @@ router.get('/' , (req,res) => {
         city: 'Malibu',
         state: 'California',
         cuisines: 'Birria Tacos',
-        pic: 'https://iamafoodblog.b-cdn.net/wp-content/uploads/2020/05/homemade-birria-tacos-recipe-3267.jpg'
+        pic: '/images/birria.jpeg'
     }, {
-        name:'Beast',
-        city:'Manhatten',
-        state:'New York',
-        cuisines:'Crepes',
-        pic:'https://hips.hearstapps.com/hmg-prod/images/delish-basic-crepes-horizontal-1545245797.jpg?crop=1xw:0.8435812837432514xh;center,top&resize=1200:*'
+        name:'Cravez',
+        city:'Anaheim',
+        state:'California',
+        cuisines:'Mexican Snacks',
+        pic:'/images/snacks.jpeg'
     }]
     res.render('places/index' , {places})
 })
