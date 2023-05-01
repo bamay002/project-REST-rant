@@ -4,12 +4,19 @@ const router = require('express').Router()
     res.setEncoding('GET /places')
 })  */
 
+router.post('/', (req, res) => {
+    console.log(req.body)               //is this correct?
+    res.send('POST /places')            // gets me to new page but unsure if its right
+  })
+  
+
 router.get('/new', (req,res) =>{
     res.render('places/new')
 })
 
+
 //GET /places
-router.get('/' , (req,res) => {
+router.get('/' , (req,res) => {       
     let places = [{
         name: '444',
         city: 'Malibu',
@@ -26,3 +33,4 @@ router.get('/' , (req,res) => {
     res.render('places/index' , {places})
 })
 module.exports = router
+
