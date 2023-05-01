@@ -1,36 +1,40 @@
 const router = require('express').Router()
+const places = require('../model/places.js')
 
 /* router.get('/', (res,req) => {
     res.setEncoding('GET /places')
 })  */
 
 router.post('/', (req, res) => {
-    console.log(req.body)               //is this correct?
-    res.send('POST /places')            // gets me to new page but unsure if its right
+    console.log(req.body)               //is this correct? gets me to new page but unsure if its right
+
+    if (!req.body.pic){
+        // if default image is not provided then
+        req.body.pic = '/images/teddy.jpeg'
+    }
+    if (!req.body.city){
+        req.body.city = 'Any Town'
+    }
+
+    if (!req.body.state){
+        req.body.state = 'USA'
+    }
+
+    places.push(req.body)
+  //  res.send('POST /places')            
+    res.redirect('/places')
   })
   
 
-router.get('/new', (req,res) =>{
+router.get('/new', (req,res) => {
     res.render('places/new')
 })
 
 
 //GET /places
 router.get('/' , (req,res) => {       
-    let places = [{
-        name: '444',
-        city: 'Malibu',
-        state: 'California',
-        cuisines: 'Birria Tacos',
-        pic: '/images/birria.jpeg'
-    }, {
-        name:'Cravez',
-        city:'Anaheim',
-        state:'California',
-        cuisines:'Mexican Snacks',
-        pic:'/images/snacks.jpeg'
-    }]
     res.render('places/index' , {places})
 })
+
 module.exports = router
 
