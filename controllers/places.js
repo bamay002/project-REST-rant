@@ -20,8 +20,7 @@ router.post('/', (req, res) => {
         req.body.state = 'USA'
     }
 
-    places.push(req.body)
-  //  res.send('POST /places')            
+    places.push(req.body)          
     res.redirect('/places')
   })
  
@@ -29,11 +28,6 @@ router.post('/', (req, res) => {
 //GET /NEW
 router.get('/new', (req,res) => {
     res.render('places/new')
-})
-
-//GET /places
-router.get('/' , (req,res) => {       
-    res.render('places/index' , {places})
 })
 
 //GET /SHOW
@@ -46,9 +40,14 @@ router.get('/:id', (req,res) => {
         res.render('error404')
     }
     else{
-    res.render('places/show' , { place: places[id] })
+    res.render('places/show' , { place: places[id], id })
     }
 })
+
+//GET /places
+router.get('/' , (req,res) => {       
+    res.render('places/index' , {places})
+}) 
 
 module.exports = router
 
