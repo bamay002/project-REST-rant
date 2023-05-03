@@ -41,3 +41,24 @@ nav a:hover {
 main {
     margin: 0px 20px;
 }
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(249, 211, 245);
+    color: white;
+    text-align: center;
+}
+
+.headingshow{
+    color: rgb(249, 211, 245) ;
+}
+
+.showpage{
+    width: 50%;
+    float: left;
+    padding: 20px;
+
+}
