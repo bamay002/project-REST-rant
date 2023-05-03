@@ -1,8 +1,9 @@
 require('dotenv').config()
 
 const express = require('express')
-const app = express()
 const methodOverride = require('method-override')
+const app = express()
+
 
 // ROUTE FOR VIEWS FOLDER / EXPRESS SETTINGS
 app.set('views', __dirname + '/views')
