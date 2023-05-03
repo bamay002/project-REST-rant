@@ -39,8 +39,8 @@ router.get('/:id', (req,res) => {
     else if (!places[id]){
         res.render('error404')
     }
-    else{
-    res.render('places/show' , { place: places[id], id })
+    else {
+        res.render('places/show' , { place: places[id], id })
     }
 })
 
