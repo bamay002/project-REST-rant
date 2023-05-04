@@ -1,4 +1,20 @@
-module.exports = [{
+//IMPORT MONGOOSE
+const mongoose = require('mongoose')
+const { Schema } = mongoose;
+
+const placeSchema = new Schema({
+    name: {type: String, required: true },
+    pic: {type: String},
+    cuisines: {type: String, required: true },
+    city: {type: String, default: 'Anytown'},
+    state: {type: String, default: 'USA'},
+    founded: {type: Number}
+})
+
+module.exports = mongoose.model('Place', placeSchema)
+
+
+/*module.exports = [{
     name: '444',
     city: 'Malibu',
     state: 'California',
@@ -11,3 +27,4 @@ module.exports = [{
     cuisines:'Mexican Snacks',
     pic:'/images/snacks.jpeg'
 }]
+*/
