@@ -33,7 +33,7 @@ router.get('/new', (req,res) => {
 //GET /SHOW
 router.get('/:id', (req,res) => {
     let id = Number(req.params.id)
-    if(isNaN(id)){
+    if (isNaN(id)) {
         res.render('error404')
     }
     else if (!places[id]){
@@ -50,18 +50,48 @@ router.get('/' , (req,res) => {
 }) 
 
 //EDIT
+
 router.get('/:id/edit', (req,res) => {
     let id = Number(req.params.id)
-    if (isNaN(id)){
+    if (isNaN(id)) {
         res.render('error404')
     }
-    else if (!places[id]){
+    else if (!places[id]) {
         res.render('error404')
     }
-    else{
+    else {
         res.render('places/edit' , { place: places[id] })
     }
 })
+
+router.put('/:id', (req,res) => {
+    let id = Number(req.params.id)
+
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        if (!req.body.pic){
+            // if default image is not provided then
+            req.body.pic = '/images/teddy.jpeg'
+        }
+        if (!req.body.city){
+            req.body.city = 'Any Town'
+        }
+
+        if (!req.body.state){
+            req.body.state = 'USA'
+        }
+
+        // Save the new data into places[id]
+        places[id] = req.body
+        res.redirect(`/places/${id}`)
+    }
+})
+
 
 //DELETE
 router.delete('/:id' , (req,res) => {

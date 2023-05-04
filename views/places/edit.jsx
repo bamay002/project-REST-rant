@@ -6,7 +6,7 @@ const edit_form = (data) => {
         <Def>
             <main>
                 <h1>Edit Place</h1>
-                <form method='POST' action={`/places/${data.place.id}?_method=PUT`}>
+                <form action={`/places/${data.place.id}?_method=PUT`} method='POST' >
                 <div className='row'>
                     <div className='form-group col-sm-6'>
                         <label htmlFor='name'>Place Name</label>
@@ -31,7 +31,7 @@ const edit_form = (data) => {
                         <label htmlFor='cuisines'>Place Cuisines</label>
                         <input className='form-control'  id='cuisines' name='cuisines' value={data.place.cuisines} required />
                     </div>
-                    <input className='btn btn-primary' type='submit' value='Add Place' />
+                    <input className='btn btn-primary' type='submit' value='Submit' />
                 </form>
             </main>
         </Def>
