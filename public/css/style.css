@@ -34,7 +34,7 @@ nav a {
 }
 
 nav a:hover {
-    color: rgb(243, 243, 201);
+    color: rgb(70, 126, 104);
     text-decoration: none;
 }
 
@@ -42,15 +42,6 @@ main {
     margin: 0px 20px;
 }
 
-.footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(249, 211, 245);
-    color: white;
-    text-align: center;
-}
 
 .headingshow{
     color: rgb(249, 211, 245) ;
@@ -62,3 +53,13 @@ main {
     padding: 20px;
 
 }
+
+.headingshow , .footer h2{
+    color: rgb(70, 126, 104);
+    padding-bottom: 5px;
+}
+
+h4 {
+    color: gray;
+}
+

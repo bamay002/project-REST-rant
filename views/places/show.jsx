@@ -8,34 +8,45 @@ function show (data) {
                 <h1>{ data.place.name }</h1>
 
                 <div className='showpage'>
-                    <img width='480' src={data.place.pic} alt={data.place.name}></img>
+                        <img width='480' src={data.place.pic} alt={data.place.name}></img>
+                        <p>
+                            Located in {data.place.city}, {data.place.state}
+                        </p>
                 </div>
 
                 <div className='showpage'>
                     <div>
                         <h2 className='headingshow'>Rating</h2>
-                        <p>Not Rated</p>  
+                        <h4>Not Rated</h4>  
                     </div>
                     <div>
                         <h2 className='headingshow'>Description</h2>
-                        <p>Located in {data.place.city}, {data.place.state} and serving {data.place.cuisines}</p>
+                            <h4>{data.place.showEstablished()}</h4>
+                            <p> Serving {data.place.cuisines}</p>
                     </div>
                 </div>
 
-                    <div>
+                    <div className='buttons'>
                         <a href={`/places/${data.id}/edit`} className='btn btn-warning'>
                             Edit
                         </a>
+                    </div>
+
+                    <div className='buttons'>
                         <form method='POST' action={`/places/${data.id}?_method=DELETE`}>
                             <button type='submit' className='btn btn-danger'>
                                 Delete
                             </button>
                         </form>
                     </div>
+
+                    <hr></hr>
+
                 <div className='footer'>
                     <h2>Comments</h2>
-                    <p>No comments yet!</p>
+                    <h4>No comments yet!</h4>
                 </div>
+
             </main>
         </Def>
     )
