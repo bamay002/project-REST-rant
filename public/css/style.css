@@ -63,3 +63,6 @@ h4 {
     color: gray;
 }
 
+.alert-danger{
+    text-align: center;
+}
