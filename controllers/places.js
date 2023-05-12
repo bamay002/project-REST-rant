@@ -156,7 +156,7 @@ router.get('/:id', (req, res) => {
     res.render('places/show', { place })
   })
   .catch(err => {
-    console.log('error', err)
+    console.log('err', err)
     res.render('error404')
   })
 })

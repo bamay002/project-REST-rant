@@ -68,3 +68,9 @@ h4 {
     text-align: center;
 }
 
+.comment{
+    text-align: center;
+    color: rgb(70, 126, 104);
+    padding-bottom: 10px;
+}
+

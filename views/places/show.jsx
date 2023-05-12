@@ -10,7 +10,7 @@ function show (data) {
     )
 
     //logic to show comments
-    if (data.place.comments.length)(
+    if (data.place.comments.length){
         comments = data.place.comments.map(c => {
             return(
                 <div className='border'>
@@ -25,7 +25,7 @@ function show (data) {
                 </div>
             )
         })
-    )
+    }
 
     return(
         <Def>
@@ -52,13 +52,13 @@ function show (data) {
                 </div>
 
                     <div className='buttons'>
-                        <a href={`/places/${data.id}/edit`} className='btn btn-warning'>
+                        <a href={`/places/${data.place.id}/edit`} className='btn btn-warning'>
                             Edit
                         </a>
                     </div>
 
                     <div className='buttons'>
-                        <form method='POST' action={`/places/${data.id}?_method=DELETE`}>
+                        <form method='POST' action={`/places/${data.place.id}?_method=DELETE`}>
                             <button type='submit' className='btn btn-danger'>
                                 Delete
                             </button>
@@ -71,6 +71,31 @@ function show (data) {
                     <h2>Comments</h2>
                     {comments}
                 </div>
+
+                <form method='POST' action='/places/${data.place.id}/comment'>
+
+                    <h2 className='comment'>Leave a Review!</h2>
+                    <div className='row'>
+                    <div className='col-sm-6 col-md-4 col-lg-3'>
+                        <label htmlFor='author'>Author</label>
+                        <input className='form-control' type='text' id='author' name='author' required />
+                    </div>
+                    <div className='col-sm-6 col-md-4 col-lg-3'>
+                        <label htmlFor='content'>Content</label>
+                        <input className='form-control' textarea id='content' name='content' required />
+                    </div>
+                    
+                    <div className='col-sm-6 col-md-4 col-lg-3'>
+                        <label htmlFor='stars'>Star Rating</label>
+                        <input className='form-control' type='number' max='5' id='stars' name='stars' step='0.5' required />
+                    </div>
+                    <div className='col-sm-6 col-md-4 col-lg-3'>
+                        <label htmlFor='rant'>Rant</label>
+                        <input className='form-control' type='checkbox' id='rant' name='rant'/>
+                    </div>
+                    </div>
+                    <input className='btn btn-primary' type='submit' value='Submit Comment' />
+                </form>
 
             </main>
         </Def>
