@@ -23,4 +23,6 @@ async function seed(){
     process.exit()
 }   
 
-seed() 
+// node seeders/seed-comments.js
+
+seed()
