@@ -6,7 +6,7 @@ const edit_form = (data) => {
         <Def>
             <main>
                 <h1>Edit Place</h1>
-                <form action={`/places/${data.id}?_method=PUT`} method='POST' >
+                <form action={`/places/${data.place.id}?_method=PUT`} method='POST' >
                 <div className='row'>
                     <div className='form-group col-sm-6'>
                         <label htmlFor='name'>Place Name</label>
@@ -27,11 +27,17 @@ const edit_form = (data) => {
                         <input className='form-control'  id='state' name='state' defaultValue={data.place.state}/>
                     </div>
                 </div>
-                    <div className='form-group'>
-                        <label htmlFor='cuisines'>Place Cuisines</label>
-                        <input className='form-control'  id='cuisines' name='cuisines' defaultValue={data.place.cuisines} required />
+                <div className='row'>
+                        <div className='form-group col-sm-6'>
+                            <label htmlFor='cuisines'>Place Cuisines</label>
+                            <input className='form-control'  id='cuisines' name='cuisines' defaultValue={data.place.cuisines} required />
+                        </div>
+                        <div className='form-group col-sm-6'>
+                            <label htmlFor='founded'>Founded</label>
+                            <input className='form-control'  id='founded' name='founded' defaultValue={data.place.founded}/>
+                        </div>
                     </div>
-                    <input className='btn btn-primary' type='submit' value='Submit' />
+                    <input className='btn btn-primary' type='submit' value='Update Place' />
                 </form>
             </main>
         </Def>
