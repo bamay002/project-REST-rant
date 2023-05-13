@@ -20,9 +20,13 @@ function show (data) {
             return tot + c.stars 
         }, 0)
 
-        let averageRating = sumRatings / data.place.comments.length 
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars =''
+        for (let i = 0; i < averageRating; i++){
+            stars += '⭐️'
+        }
         rating = (
-            <h4> {averageRating} stars </h4>
+            <h4> {stars} </h4>
         )
     }
     //logic to show comments
