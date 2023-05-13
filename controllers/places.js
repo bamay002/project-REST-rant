@@ -220,7 +220,21 @@ router.post('/:id/comment', (req, res) => {
 
 
 router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+    //res.send('GET /places/:id/rant/:rantId stub')
+    db.Comment.findByIdAndDelete(req.params.id)
+    .then(place => {
+        db.Comment.delete(req.body)
+        .then(comment => {
+            place.comment.push(comment.id)
+        })
+        .then(() => {
+            res.redirect('/places')
+        })
+    })
+    .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+    })
 })
 
 module.exports = router
