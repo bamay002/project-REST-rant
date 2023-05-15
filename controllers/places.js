@@ -199,6 +199,7 @@ router.post('/:id/rant', (req, res) => {
 
 router.post('/:id/comment', (req, res) => {
     console.log(req.body)
+    req.body.rant = req.body.rant ? true : false
     db.Place.findById(req.params.id)
     .then(place => {
         db.Comment.create(req.body)
@@ -219,17 +220,11 @@ router.post('/:id/comment', (req, res) => {
 })
 
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    //res.send('GET /places/:id/rant/:rantId stub')
-    db.Comment.findByIdAndDelete(req.params.id)
-    .then(place => {
-        db.Comment.delete(req.body)
-        .then(comment => {
-            place.comment.push(comment.id)
-        })
-        .then(() => {
-            res.redirect('/places')
-        })
+router.delete('/:id/comment/:commentId', (req, res) => {
+    db.Comment.findByIdAndDelete(req.params.commentId)
+    .then(() => {
+        console.log('Success')
+        res.redirect(`/places/${req.params.id}`)
     })
     .catch(err => {
       console.log('err', err)
