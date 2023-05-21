@@ -48,7 +48,7 @@ main {
     color: rgb(249, 211, 245) ;
 }
 
-.showpage{
+.showpage , .reaction{
     width: 50%;
     float: left;
     padding: 20px;
